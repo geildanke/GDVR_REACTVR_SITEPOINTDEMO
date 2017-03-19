@@ -9,7 +9,14 @@ class UI extends React.Component {
   render () {
 
     return (
-      <View>
+      <View
+        style={{
+          transform: [
+            {translate: [-1, 0, -3]},
+          ],
+          width: 2,
+        }}
+      >
         <Button />
       </View>
     );

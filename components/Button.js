@@ -11,14 +11,26 @@ class Button extends React.Component {
   render () {
 
     return (
-      <View>
+      <View
+        style={{
+          alignItems: 'stretch',
+          flexDirection: 'row',
+          width: 2,
+        }}
+      >
         <VrButton
-          style={{width: 0.7}}
-          onClick={()=>this._onViewClicked()}>
-          <Image style={{width:1, height:1}}
-            source={asset('reactconf_00.jpg')}
-            inset={[0.2,0.2,0.2,0.2]}
-            insetSize={[0.05,0.45,0.55,0.15]} >
+          style={{
+            backgroundColor: 'red',
+            height: 0.25,
+          }}
+        >
+          <Image
+            style={{
+              width: 1,
+              height: 1,
+            }}
+            source={asset('button-yellow.png')}
+          >
           </Image>
         </VrButton>
       </View>
