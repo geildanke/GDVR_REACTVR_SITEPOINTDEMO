@@ -7,11 +7,27 @@ import Canvas from './components/Canvas';
 import UI from './components/UI';
 
 class GDVR_REACTVR_SITEPOINTDEMO extends React.Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      buttonClicked: false,
+    };
+  }
+
   render() {
+
     return (
       <View>
-        <Canvas />
-        <UI />
+        <Canvas
+          changeTriggered={this.state.buttonClicked}
+        />
+        <UI
+          onClick={()=>{
+            this.setState({buttonClicked: true});
+          }}
+        />
       </View>
     );
   }

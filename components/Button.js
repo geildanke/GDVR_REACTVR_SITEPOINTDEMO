@@ -11,7 +11,7 @@ const Easing = require('Easing');
 
 class Button extends React.Component {
 
-  constructor() {
+  constructor(props) {
     super();
 
     this.state ={
@@ -41,6 +41,11 @@ class Button extends React.Component {
     ).start();
   }
 
+  onButtonClick() {
+    console.log('OnButtonClicked');
+    this.props.onClick();
+  }
+
   onButtonEntered() {
     console.log('OnButtonEntered');
     this.animateIn();
@@ -67,6 +72,7 @@ class Button extends React.Component {
         }}
       >
         <VrButton
+          onClick={()=>this.onButtonClick()}
           onEnter={()=>this.onButtonEntered()}
           onExit={()=>this.onButtonExit()}
         >

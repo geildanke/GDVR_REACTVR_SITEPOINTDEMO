@@ -7,6 +7,20 @@ import {
 
 class Canvas extends React.Component {
 
+  constructor(props) {
+    super();
+
+    this.state = {
+      changeTriggered: false,
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.state.changeTriggered === false && nextProps.changeTriggered === true) {
+      console.log('CHANGE!');
+    }
+  }
+
   render() {
 
     return (

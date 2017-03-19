@@ -17,7 +17,11 @@ class UI extends React.Component {
           width: 2,
         }}
       >
-        <Button />
+        <Button
+          onClick={()=>{
+            this.props.onClick();
+          }}
+        />
       </View>
     );
   }
