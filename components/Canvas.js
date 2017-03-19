@@ -11,7 +11,7 @@ class Canvas extends React.Component {
 
     return (
       <View>
-        <Pano source={asset('reactconf_0.jpg')}/>
+        <Pano source={asset('reactconf_00.jpg')}/>
       </View>
     );
   }
