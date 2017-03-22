@@ -1,31 +1,60 @@
 import React from 'react';
 import {
   AppRegistry,
-  asset,
-  StyleSheet,
-  Pano,
-  Text,
   View,
 } from 'react-vr';
+import Canvas from './components/Canvas';
+import UI from './components/UI';
+
+const Config = [
+  {
+    key: 0,
+    imageSrc: 'reactconf_00.jpg',
+    buttonImageSrc: 'button-yellow.png',
+  },
+  {
+    key: 1,
+    imageSrc: 'reactconf_01.jpg',
+    buttonImageSrc: 'button-yellow.png',
+  },
+  {
+    key: 2,
+    imageSrc: 'reactconf_02.jpg',
+    buttonImageSrc: 'button-yellow.png',
+  },
+  {
+    key: 3,
+    imageSrc: 'reactconf_03.jpg',
+    buttonImageSrc: 'button-yellow.png',
+  }
+];
 
 class GDVR_REACTVR_SITEPOINTDEMO extends React.Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      buttonClicked: false,
+      src: 'reactconf_00.jpg',
+    };
+  }
+
   render() {
+
     return (
       <View>
-        <Pano source={asset('chess-world.jpg')}/>
-        <Text
-          style={{
-            backgroundColor: '#777879',
-            fontSize: 0.8,
-            layoutOrigin: [0.5, 0.5],
-            paddingLeft: 0.2,
-            paddingRight: 0.2,
-            textAlign: 'center',
-            textAlignVertical: 'center',
-            transform: [{translate: [0, 0, -3]}],            
-          }}>
-          hello
-        </Text>
+        <Canvas
+          src={this.state.src}
+          changeTriggered={this.state.buttonClicked}
+        />
+        <UI
+          buttonConfig={Config}
+          onClick={(key)=>{
+            this.setState({buttonClicked: true});
+            this.setState({src: Config[key].imageSrc});
+          }}
+        />
       </View>
     );
   }
