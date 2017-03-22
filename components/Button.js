@@ -14,7 +14,7 @@ class Button extends React.Component {
   constructor(props) {
     super();
 
-    this.state ={
+    this.state = {
       translation: new Animated.Value(0),
     };
   }
@@ -58,17 +58,16 @@ class Button extends React.Component {
 
   render () {
 
-    console.log(this.state.translation);
-
     return (
       <Animated.View
         style={{
           alignItems: 'stretch',
           flexDirection: 'row',
+          margin: 0.0125,
           transform: [
             {translateZ: this.state.translation},
           ],
-          width: 2,
+          width: 0.7,
         }}
       >
         <VrButton
@@ -78,10 +77,10 @@ class Button extends React.Component {
         >
           <Image
             style={{
-              width: 1,
-              height: 1,
+              width: 0.7,
+              height: 0.7,
             }}
-            source={asset('button-yellow.png')}
+            source={asset(this.props.src)}
           >
           </Image>
         </VrButton>

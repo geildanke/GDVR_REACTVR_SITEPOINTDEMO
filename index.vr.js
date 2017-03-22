@@ -6,6 +6,29 @@ import {
 import Canvas from './components/Canvas';
 import UI from './components/UI';
 
+const Config = [
+  {
+    key: 0,
+    imageSrc: 'reactconf_00.jpg',
+    buttonImageSrc: 'button-yellow.png',
+  },
+  {
+    key: 1,
+    imageSrc: 'reactconf_01.jpg',
+    buttonImageSrc: 'button-yellow.png',
+  },
+  {
+    key: 2,
+    imageSrc: 'reactconf_02.jpg',
+    buttonImageSrc: 'button-yellow.png',
+  },
+  {
+    key: 3,
+    imageSrc: 'reactconf_03.jpg',
+    buttonImageSrc: 'button-yellow.png',
+  }
+];
+
 class GDVR_REACTVR_SITEPOINTDEMO extends React.Component {
 
   constructor() {
@@ -13,6 +36,7 @@ class GDVR_REACTVR_SITEPOINTDEMO extends React.Component {
 
     this.state = {
       buttonClicked: false,
+      src: 'reactconf_00.jpg',
     };
   }
 
@@ -21,11 +45,14 @@ class GDVR_REACTVR_SITEPOINTDEMO extends React.Component {
     return (
       <View>
         <Canvas
+          src={this.state.src}
           changeTriggered={this.state.buttonClicked}
         />
         <UI
-          onClick={()=>{
+          buttonConfig={Config}
+          onClick={(key)=>{
             this.setState({buttonClicked: true});
+            this.setState({src: Config[key].imageSrc});
           }}
         />
       </View>

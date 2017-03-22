@@ -8,16 +8,17 @@ import {
 class Canvas extends React.Component {
 
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
       changeTriggered: false,
+      src: this.props.src,
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.state.changeTriggered === false && nextProps.changeTriggered === true) {
-      console.log('CHANGE!');
+      this.setState({src: nextProps.src});
     }
   }
 
@@ -25,7 +26,7 @@ class Canvas extends React.Component {
 
     return (
       <View>
-        <Pano source={asset('reactconf_00.jpg')}/>
+        <Pano source={asset(this.state.src)}/>
       </View>
     );
   }
