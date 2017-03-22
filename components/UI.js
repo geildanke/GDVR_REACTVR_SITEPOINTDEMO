@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Animated,
   View,
 } from 'react-vr';
 import Button from './Button';
@@ -10,12 +11,31 @@ class UI extends React.Component {
     super(props);
 
     this.buttons = this.props.buttonConfig;
+    this.state = {
+      animatedOpacity: new Animated.Value(1),
+    };
+  }
+
+  componentWillMount() {
+    console.log('Fading out');
+    this.fadeOut();
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.buttonConfig) {
       this.buttons = nextProps.buttonConfig;
     }
+  }
+
+  fadeOut() {
+    Animated.timing(
+      this.state.animatedOpacity,
+      {
+        toValue: 0,
+        duration: 1500,
+        delay: 5000,
+      }
+    ).start();
   }
 
   render () {
@@ -31,11 +51,12 @@ class UI extends React.Component {
       );
 
     return (
-      <View
+      <Animated.View
         style={{
           flexDirection: 'row',
           flexWrap: 'wrap',
           justifyContent: 'center',
+          opacity: this.state.animatedOpacity,
           transform: [
             {translate: [-1.5, 0, -3]},
           ],
@@ -43,7 +64,7 @@ class UI extends React.Component {
         }}
       >
         {buttons}
-      </View>
+      </Animated.View>
     );
   }
 };
