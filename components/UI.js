@@ -17,7 +17,6 @@ class UI extends React.Component {
   }
 
   componentWillMount() {
-    console.log('Fading out');
     this.fadeOut();
   }
 
