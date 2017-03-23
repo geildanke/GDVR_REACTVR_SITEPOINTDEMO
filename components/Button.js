@@ -61,7 +61,7 @@ class Button extends React.Component {
     return (
       <Animated.View
         style={{
-          alignItems: 'stretch',
+          alignItems: 'center',
           flexDirection: 'row',
           margin: 0.0125,
           transform: [
