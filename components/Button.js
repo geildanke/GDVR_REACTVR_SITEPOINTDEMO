@@ -42,17 +42,14 @@ class Button extends React.Component {
   }
 
   onButtonClick() {
-    console.log('OnButtonClicked');
     this.props.onClick();
   }
 
   onButtonEntered() {
-    console.log('OnButtonEntered');
     this.animateIn();
   }
 
   onButtonExit() {
-    console.log('OnButtonExit');
     this.animateOut();
   }
 
