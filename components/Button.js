@@ -15,13 +15,13 @@ class Button extends React.Component {
     super();
 
     this.state = {
-      translation: new Animated.Value(0),
+      animatedTranslation: new Animated.Value(0),
     };
   }
 
   animateIn() {
     Animated.timing(
-      this.state.translation,
+      this.state.animatedTranslation,
       {
         toValue: 0.125,
         duration: 100,
@@ -32,7 +32,7 @@ class Button extends React.Component {
 
   animateOut() {
     Animated.timing(
-      this.state.translation,
+      this.state.animatedTranslation,
       {
         toValue: 0,
         duration: 100,
@@ -42,17 +42,14 @@ class Button extends React.Component {
   }
 
   onButtonClick() {
-    console.log('OnButtonClicked');
     this.props.onClick();
   }
 
   onButtonEntered() {
-    console.log('OnButtonEntered');
     this.animateIn();
   }
 
   onButtonExit() {
-    console.log('OnButtonExit');
     this.animateOut();
   }
 
@@ -61,11 +58,11 @@ class Button extends React.Component {
     return (
       <Animated.View
         style={{
-          alignItems: 'stretch',
+          alignItems: 'center',
           flexDirection: 'row',
           margin: 0.0125,
           transform: [
-            {translateZ: this.state.translation},
+            {translateZ: this.state.animatedTranslation},
           ],
           width: 0.7,
         }}

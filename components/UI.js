@@ -4,6 +4,8 @@ import {
 } from 'react-vr';
 import Button from './Button';
 
+const Easing = require('Easing');
+
 class UI extends React.Component {
 
   constructor(props) {
@@ -35,8 +37,8 @@ class UI extends React.Component {
         style={{
           flexDirection: 'row',
           flexWrap: 'wrap',
-          justifyContent: 'center',
           transform: [
+            {rotateX: -12},
             {translate: [-1.5, 0, -3]},
           ],
           width: 3,
