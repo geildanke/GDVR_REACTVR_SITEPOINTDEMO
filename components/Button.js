@@ -19,7 +19,7 @@ class Button extends React.Component {
     };
   }
 
-  animateIn() {
+  animateIn = () => {
     Animated.timing(
       this.state.animatedTranslation,
       {
@@ -30,7 +30,7 @@ class Button extends React.Component {
     ).start();
   }
 
-  animateOut() {
+  animateOut = () => {
     Animated.timing(
       this.state.animatedTranslation,
       {
@@ -41,16 +41,8 @@ class Button extends React.Component {
     ).start();
   }
 
-  onButtonClick() {
+  onButtonClick = () => {
     this.props.onClick();
-  }
-
-  onButtonEntered() {
-    this.animateIn();
-  }
-
-  onButtonExit() {
-    this.animateOut();
   }
 
   render () {
@@ -68,9 +60,9 @@ class Button extends React.Component {
         }}
       >
         <VrButton
-          onClick={()=>this.onButtonClick()}
-          onEnter={()=>this.onButtonEntered()}
-          onExit={()=>this.onButtonExit()}
+          onClick={this.onButtonClick}
+          onEnter={this.animateIn}
+          onExit={this.animateOut}
         >
           <Image
             style={{
