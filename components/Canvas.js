@@ -2,7 +2,6 @@ import React from 'react';
 import {
   asset,
   Pano,
-  View,
 } from 'react-vr';
 
 class Canvas extends React.Component {
@@ -25,9 +24,7 @@ class Canvas extends React.Component {
   render() {
 
     return (
-      <View>
-        <Pano source={asset(this.state.src)}/>
-      </View>
+      <Pano source={asset(this.state.src)}/>
     );
   }
 };
